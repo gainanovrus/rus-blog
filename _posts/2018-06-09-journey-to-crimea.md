@@ -3,7 +3,7 @@ published: true
 layout: single
 title: "Программа максимум или как объехать и увидеть Крым за 5 дней!"
 excerpt: >-
-  In this post I want to tell about my trip to a wonderful Russian place. This place is Crimea. I use my native language to describe it because only with it I can explain the beauty of this land. Maybe it will be translated later.
+  Моё пятидневное путешествие через весь Крым - пляжи, степь, горы и море.
 toc: true
 related: false
 header:

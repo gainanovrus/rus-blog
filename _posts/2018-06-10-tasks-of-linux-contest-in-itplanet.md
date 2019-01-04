@@ -1,11 +1,10 @@
 ---
 published: true
 layout: single
-title:  "Tasks of Linux contest in IT-Planet"
+title:  "Задания с IT-Планеты-2018 по Администрированию Linux"
 excerpt: >-
-  IT-Planet is an international olympiad for students and young specialists in IT. 
-  I participated in the contest of Linux Administration and I became one of the winners. 
-  The tasks that presented below have been in the final of the contest. 
+  IT-Планета одно из самых масштабных состязаний в области ИТ в России.
+  Я участвовал в конкурсе по номинации "Администрирование Linux", прошел несколько отборочных этапов и стал одним из победителей в финальных соревнованиях. Здесь выложены задания финала.
 categories: linux
 tags: itplanet contest centos linux
 toc: true
@@ -14,17 +13,17 @@ header:
   og_image: /assets/images/tasks-of-linux-contest-in-itplanet-teaser.jpg
 ---
 
-**IT-Planet** is an international olympiad for students and young specialists in IT. 
-I participated in the contest of Linux Administration and I became one of the winners. 
-The tasks that presented below have been in the final of the contest. 
+**IT-Planet** is an international olympiad for students and young specialists in IT.
+I participated in the contest of Linux Administration and I became one of the winners.
+The tasks that presented below have been in the final of the contest.
 {: .notice--info}
 
-[«IT-Планета»][itplanet] — одно из самых масштабных состязаний в области информационных технологий, учрежденных в России. 
-Учредителями конкурсов являются ведущие российские и международные ИТ-компании: 1С, Huawei, Cisco, Oracle, ГНУ/Линуксцентр и СКБ Контур. 
-Олимпиада проводится по нескольким направлениям. 
+[«IT-Планета»][itplanet] — одно из самых масштабных состязаний в области информационных технологий, учрежденных в России.
+Учредителями конкурсов являются ведущие российские и международные ИТ-компании: 1С, Huawei, Cisco, Oracle, ГНУ/Линуксцентр и СКБ Контур.
+Олимпиада проводится по нескольким направлениям.
 
-Я участвовал в конкурсе по номинации "Администрирование Linux", прошел несколько отборочных этапов и стали одним из победителей в финальных соревнованиях.
-И здесь решил выложить сами задания финала, которые показались мне достаточно интересными. Если найду время - выложу и решения.
+Я участвовал в конкурсе по номинации "Администрирование Linux", прошел несколько отборочных этапов и стал одним из победителей в финальных соревнованиях.
+Здесь решил выложить сами задания финала, которые показались мне достаточно интересными. Если найду время - выложу и решения.
 
 ---
 
@@ -86,7 +85,7 @@ The tasks that presented below have been in the final of the contest.
    Содержит он вопросы восстановления паролей у пользователей почтового
    сервиса. Для удобства обработки списка нужно написать скрипт, который
    * Забирает список с сервера
-   * На лету преобразовывает его в json 
+   * На лету преобразовывает его в json
      (реализация принимается на bash, python, готовый скрипт положить в /root/answer_to_json.py,{sh})
    * json сохранить в /root/result.json
    * Бонусный балл можно заработать отфильтровав наиболее редкие вопросы восстановления
