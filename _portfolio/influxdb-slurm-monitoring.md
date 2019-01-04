@@ -1,43 +1,42 @@
 ---
-title: "Monitoring system for Docker SLURM cluster"
-excerpt: "Design and deploy a system for collect, store and visualize data from SLURM cluster realized on Docker environment."
+title: "Система мониторинга вычислительного кластера на Docker и SLURM"
+excerpt: >-
+  Разработка и развертывание системы для сбора, хранения и визуализации системных параметров вычислительного кластера.
 header:
   image: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-banner.png
   teaser: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-teaser.png
 sidebar:
-  - title: "Role"
+  - title: "Роль"
     image: assets/images/influxdb-slurm-monitoring/icmm_logo-min.png
     image_alt: "logo"
-    text: "DevOps engineer"
-  - title: "Responsibilities"
-    text: "Design a system for monitoring tasks queue, node loads and system statics of SLURM cluster in Institute of Continuous Media Mechanics (ICMM UB RAS)"
+    text: "Инженер DevOps"
+  - title: "Мой вклад"
+    text: "Разработал систему для мониторинга очередей задач, загруженности вычислительных узлов кластера и отображения истории изменений системной статистики кластера SLURM для Института механики сплошных сред РАН (ИМСС РАН)"
 gallery:
   - url: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-scheme.png
     image_path: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-scheme.png
-    alt: "Scheme of SLURM cluster and monitoring system"
+    alt: "Схема SLURM кластера"
   - url: assets/images/influxdb-slurm-monitoring/grafana-all-panels.png
     image_path: assets/images/influxdb-slurm-monitoring/grafana-all-panels.png
-    alt: "An example dashboard to view system statistics"
+    alt: "Пример дашбоарда для отображения статистики"
 ---
-Institute of Continuous Media Mechanics ([ICMM UB RAS][ICMM UB RAS]) has a high-performance cluster consist of about 50 nodes with >400 CPUs and more than 1 TB RAM.
-It's needed to make models of new materials and calculate its properties.
-And in the future, the Institute has plans to upgrade his infrastructure and virtualize his resources to get less dependencies of a hardware layer.
-The cluster uses [Slurm workload manager][SLURM] to run programs on compute nodes.
-With SLURM many scientist can easy run his programs on the cluster in parallel and independent.
+[Институт механики сплошных сред][ICMM UB RAS] имеет вычислительный кластер на базе суперкомпьютера состоящего из около 50 узлов с >400 CPU и >1 ТБ оперативной памяти.
+Он используется в научной работе различными подразделениями института для построения математических моделей и расчета различных параметров.
 
-And I should work with these systems.
-My primary task is to make scripts for deploying virtual compute infrastructure with [Docker][Docker].
-My second task is to design and configure a monitoring system to collect and view system statics in the real-time.
+В будущем Институт планирует обновить свою инфраструктуру и виртуализировать свои вычислительные ресурсы для снижения зависимостей физического уровня аппаратуры. В кластере используется менеджер задач [SLURM][SLURM] для запуска программ на вычислительных узлах.
+Благодаря нему многие сотрудники Института могут запускать одновременно и независимо друг от друга свои задачи.
 
-Has been developed a script that deploying a simple SLURM configuration with docker-compose.
-Instead of docker-compose could be used [docker stack][stack] command with Docker [Swarm][Swarm] to deploy containers to a compute nodes with included SLURM software.
-All information is described on [GitHub][docker-slurmbase].
+И я должен был разобраться с этой системой. Моей основной задачей было написание скриптов для развертывания виртуальной вычислительной инфраструктуры на базе Docker [Docker][Docker]. Затем мне требовалось разработать и сконфигурировать системы мониторинга системной статистики в реальном времени.
 
-I have used a stack [InfluxDB](http://influxdata.com)+[Grafana](http://grafana.com), I've known good from my [previous][visualisation-jinr-cloud] work, to realize a monitoring system.
-I use HDF5 profiling plugin for collecting data about runned tasks.
-This plugin was based of work of the [cfenoy][cfenoy] user.
-I've modified it to work with the last SLURM version and add gathering some new fields.
-Also was configured a Grafana dashboard that helps view all statistics about task that have been ever run on the HPC cluster.
+Для развертывания виртуального кластера был написан скрипт для docker-compose.
+Его подробности выложены на [GitHub][docker-slurmbase].
+
+Для мониторинга я использовал стек [InfluxDB](http://influxdata.com)+[Grafana](http://grafana.com),
+Я его хорошо знаю по своей предыдущей [работе][visualisation-jinr-cloud].
+Сбор данных о запущенных задачах происходил с использованием плагина-профилировщика HDF5.
+Этот плагин был основан на работе пользователя [cfenoy][cfenoy].
+Я его модифицировал для работы с последней версией SLURM и добавил сбор нескольких дополнительных полей.
+Также был создан и настроен дашбоард в системе Grafanf, который помогает наблюдать всю статистику кластера в браузере в реальном-времени.
 
 ----------------------------------------------------------------------
 ### docker-slurmbase:

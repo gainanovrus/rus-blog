@@ -1,36 +1,32 @@
 ---
-title: "Visualization of the JINR cloud resources utilization"
-excerpt: "A system that gathering data from a cloud infrastructure based on OpenNebula and showing it with Grafana."
+title: "Визуализация потребления облачных ресурсов"
+excerpt: "Разработка система для сбора данных с облачной инфраструктуры основанной на OpenNebula и отображение их с помощью системы Grafana."
 header:
   image: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-scheme.png
   teaser: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-scheme-th-min.png
 sidebar:
-  - title: "Role"
+  - title: "Роль"
     image: assets/images/visualisation-jinr-cloud/jinr-logo.png
     image_alt: "logo"
-    text: "Analyst, Architect, Developer"
-  - title: "Responsibilities"
-    text: "Design a system to get statistics of the JINR cloud resources utilization"
+    text: "Аналитик, архитектор, разработчик"
+  - title: "Мой вклад"
+    text: "Разработал систему для получения статистики использования вычислительных ресурсов облачной инфраструктуры ОИЯИ"
 gallery:
   - url: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-1-min.png
     image_path: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-1-min.png
-    alt: "Resource allocation between clusters"
+    alt: "Распределение ресурсов между кластерами"
   - url: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-2-min.png
     image_path: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-2-min.png
-    alt: "Resource allocation by Department"
+    alt: "Распределение ресурсов между департаментами"
   - url: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-3-min.png
     image_path: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-3-min.png
-    alt: "Resource usage statistics"
+    alt: "Общая статистика потребления ресурсов"
 ---
 
-To visualize statistics on a distribution of resources of the [JINR](http://jinr.ru) cloud the [Grafana](http://grafana.com) system was chosen. 
-It provides a user-friendly interface through a web browser displaying various kinds of statistical metrics in real-time, 
-gives flexible and functional ways to customize the layout of charts and graphs.
+Для визуализации статистики потребления ресурсов облака Объединенного института ядерных исследований ([ОИЯИ](http://jinr.ru)) мною была выбрана система [Grafana](http://grafana.com).
+Она предоставляет удобный пользовательский интерфейс через веб-браузер для отображения различных метрик в реальном времени в виде наборов диаграмм и графиков.
 
-As data-storage to store gathering information from OpenNebula was chosen [InfluxDB](http://influxdata.com). 
-It is an open source database specifically to handle time series data with high availability and high performance requirements. 
-InfluxDB is meant to be used as a backend storage for many use cases involving large amounts of timestamped data, 
-including DevOps monitoring, application metrics and real-time analytics. 
-It has a simple, high performing write and query HTTP(S) APIs. 
+В качестве хранилища измерений для сбора информации с системы OpenNebula была выбрана система [InfluxDB](http://influxdata.com).
+Эта система является свободно-распространяемой базой данных предназначенной для хранения данных измерений с требованиями к высокой скорости и доступности. InfluxDB имеет простой и высокопроизводительный интерфейс для записи данных и запросов через HTTP(s).
 
-{% include gallery caption="Developed dashboards" %}
+{% include gallery caption="Разработанные дашбоарды" %}

@@ -1,40 +1,39 @@
 ---
-title: "Computer-aided system to control a moving of a robotic system in an environment with obstacles"
-excerpt: "The work was been made for the University in masters thesis by me"
+title: "Автоматизированная система для контроля перемещения робота в пространстве с препятствиями"
+excerpt: "Разработка моделей используемых в моей магистерской работе в университете."
 header:
   image: assets/images/robot-motion/robot-motion-main-min.png
   teaser: assets/images/robot-motion/robot-motion-main-min.png
 sidebar:
-  - title: "Role"
+  - title: "Роль"
     image: assets/images/robot-motion/pnrpu-logo-min.png
     image_alt: "logo"
-    text: "Student"
-  - title: "Responsibilities"
-    text: "Studying and doing scientific work"
+    text: "Студент"
+  - title: "Мой вклад"
+    text: "Написание научно-исследовательской работы"
 gallery:
   - url: assets/images/robot-motion/robot-motion-1-min.png
     image_path: assets/images/robot-motion/robot-motion-1-min.png
-    alt: "A manipulator robot trying to bypass obstacles"
+    alt: "Робот манипулятор пробует обойти препятствия"
   - url: assets/images/robot-motion/robot-motion-2-min.jpg
     image_path: assets/images/robot-motion/robot-motion-2-min.jpg
-    alt: "A prototype of a real frame robot"
+    alt: "Прототип реального робота"
   - url: assets/images/robot-motion/robot-motion-3-min.png
     image_path: assets/images/robot-motion/robot-motion-3-min.png
-    alt: "A model of a frame robot with visible joints"
+    alt: "Модель робота с видимыми соединителями"
 ---
 
-In my last course of the University, I've decided to help my department to create a model that will simulate the real system for scanning details in many angles.
-The main purpose of the work is to find an algorithm to move robots by path without collision to each other and the environment.
-I use [V-REP][v-rep] system to design models and to solve inverse and forward kinematics tasks of together motion two robots.
-In the picture gallery is present models are consisting of two main robots is a manipulator (in the picture it is a "1") and a frame robot ("2").
-Also has a table robot ("3") that rotates a detail ("4").
+На последнем курсе обучения в университете я решил помочь своей кафедре создать модель которая бы имитировала реальную систему, применяемую для сканирования деталей с нескольких сторон. Основной целью работы был поиск подходящего алгоритма для перемещения частей робота по заданному маршруту без столкновений друг с другом и с предметами окружающего мира.
 
-Maybe it is not a work for IT or programmer but I was exploring many science articles and approaches,
-studying it to make a good thesis of a scientific work and presents it to a commission of the University.
-And also I've learned the basics in Lua language.
+Я использовал систему [V-REP][v-rep] для разработки моделей и решения задач прямой и обратной кинематики совместного перемещения двух роботов.
+На изображении в выше представлена эта 3D-модель состоящая из двух основных роботов - робота-манипулятора (обозначен "1") и робота-рамки ("2").
+Также там представлены робот-подставка ("3"), который поворачивает сканируемую деталь ("4").
 
-I've uploaded the source code of the project into [Github](https://github.com/RuslanGainanov/robot-motion).
-Also you can view the video of a scanning process of a detail.
+Возможно эта работа не для IT и разработчика, но благодаря ей я изучил много научной литературы, что позволило мне сделать хорошую научно-исследовательскую работу, которую я представил научному комитету в университете на защите.  
+Также я изучил основы языка программирования Lua.
+
+Я выгрузил исходники кода проекта на [Github](https://github.com/RuslanGainanov/robot-motion).
+А в данном видео вы можете увидеть процесс сканирования детали:
 <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/yxw9i_CwjF0" frameborder="0" allowfullscreen></iframe>
 
 {% include gallery %}
