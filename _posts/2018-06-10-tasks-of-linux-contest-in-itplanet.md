@@ -7,7 +7,7 @@ excerpt: >-
   Я участвовал в конкурсе по номинации "Администрирование Linux", прошел несколько отборочных этапов и стал одним из победителей в финальных соревнованиях. Здесь выложены задания финала.
 categories: linux
 tags: itplanet contest centos linux
-toc: true
+toc: false
 header:
   teaser: /assets/images/tasks-of-linux-contest-in-itplanet-teaser.jpg
   og_image: /assets/images/tasks-of-linux-contest-in-itplanet-teaser.jpg
