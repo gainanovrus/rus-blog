@@ -3,7 +3,7 @@ layout: single
 author_profile: true
 title: Обо мне
 permalink: /about/
-last_modified_at: 2019-01-03T00:00:00-00:00
+last_modified_at: 2019-01-03
 published: true
 ---
 
