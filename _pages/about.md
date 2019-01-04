@@ -1,15 +1,16 @@
 ---
 layout: single
 author_profile: true
-title: About
+title: Обо мне
 permalink: /about/
 last_modified_at: 2019-01-03T00:00:00-00:00
 published: true
 ---
 
-Hi, I'm Ruslan Gainanov. And I blogging about everything that happens to me and that I do in a job.
-But often this is associated with IT, Sysadmin and Software.
+Привет! Меня зовут Руслан Гайнанов. В этом блоге я пишу обо всём, что со мной происходит и что я делаю по своей работе. Чаще всего это связано с IT и системным администрированием, а также с разработкой и настройкой ПО.
 
-And sorry for my language mistakes. With this blog, I hope I will know English better.
+В надежде, что это пригодится мне в будущем и может быть полезно тебе, мой читатель.
 
-For more information about me just follow to root of the site [GAINANOV.PRO](http://gainanov.pro/en).
+А на [английской версии](http://gainanov.pro/eng-blog) я практикую свою письменную речь.
+
+Всю дополнительную информацию обо мне можно найти на основном сайте - [GAINANOV.PRO](http://gainanov.pro/en) и в соц. сетях.
