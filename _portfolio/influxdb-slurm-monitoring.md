@@ -14,7 +14,7 @@ sidebar:
   - title: "Роль"
     text: "Инженер DevOps"
   - title: "Мой вклад"
-    text: "Разработал систему для мониторинга очередей задач, загруженности вычислительных узлов кластера и отображения истории изменений системной статистики кластера SLURM для Института механики сплошных сред УрО РАН (ИМСС РАН)"
+    text: "Разработал систему для мониторинга очередей задач, загруженности вычислительных узлов кластера и отображения истории изменений системной статистики кластера SLURM"
 gallery:
   - url: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-scheme.png
     image_path: assets/images/influxdb-slurm-monitoring/influxdb-slurm-monitoring-scheme.png
