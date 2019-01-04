@@ -1,13 +1,16 @@
 ---
 title: "Автоматизированная система для контроля перемещения робота в пространстве с препятствиями"
+author_profile: false
 excerpt: "Разработка моделей используемых в моей магистерской работе в университете."
 header:
   image: assets/images/robot-motion/robot-motion-main-min.png
   teaser: assets/images/robot-motion/robot-motion-main-min.png
 sidebar:
-  - title: "Роль"
+  - title: "Место"
     image: assets/images/robot-motion/pnrpu-logo-min.png
     image_alt: "logo"
+    text: "Пермский научно-исследовательский политехнический университет (ПНИПУ), г. Пермь"
+  - title: "Роль"
     text: "Студент"
   - title: "Мой вклад"
     text: "Написание научно-исследовательской работы"

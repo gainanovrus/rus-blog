@@ -1,13 +1,16 @@
 ---
 title: "Визуализация потребления облачных ресурсов"
+author_profile: false
 excerpt: "Разработка система для сбора данных с облачной инфраструктуры основанной на OpenNebula и отображение их с помощью системы Grafana."
 header:
   image: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-scheme.png
   teaser: assets/images/visualisation-jinr-cloud/visualisation-jinr-cloud-scheme-th-min.png
 sidebar:
-  - title: "Роль"
+  - title: "Место"
     image: assets/images/visualisation-jinr-cloud/jinr-logo.png
     image_alt: "logo"
+    text: "Объединенный институт ядерных исследований (ОИЯИ), г. Дубна, МО"
+  - title: "Роль"
     text: "Аналитик, архитектор, разработчик"
   - title: "Мой вклад"
     text: "Разработал систему для получения статистики использования вычислительных ресурсов облачной инфраструктуры ОИЯИ"
