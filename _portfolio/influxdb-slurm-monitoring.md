@@ -10,7 +10,7 @@ sidebar:
   - title: "Место"
     image: assets/images/influxdb-slurm-monitoring/icmm_logo-min.png
     image_alt: "logo"
-    text: "Институт механики сплошных сред УрО РАН (ИМСС УрО РАН), г. Пермь"
+    text: "[Институт механики сплошных сред УрО РАН (ИМСС УрО РАН), г. Пермь](https://www.icmm.ru)"
   - title: "Роль"
     text: "Инженер DevOps"
   - title: "Мой вклад"

@@ -9,7 +9,7 @@ sidebar:
   - title: "Место"
     image: assets/images/robot-motion/pnrpu-logo-min.png
     image_alt: "logo"
-    text: "Пермский научно-исследовательский политехнический университет (ПНИПУ), г. Пермь"
+    text: "[Пермский научно-исследовательский политехнический университет (ПНИПУ), г. Пермь](http://itas.pstu.ru)"
   - title: "Роль"
     text: "Студент"
   - title: "Мой вклад"
