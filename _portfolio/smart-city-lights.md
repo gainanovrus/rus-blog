@@ -15,17 +15,17 @@ sidebar:
   - title: "Мой вклад"
     text: "Представил свой проект участникам и жюри форума"
 gallery:
-  - url: assets/images/smart-city-lights/ivolga-forum-info.png
-    image_path: assets/images/smart-city-lights/ivolga-forum-info.png
+  - url: assets/images/smart-city-lights/ivolga-forum-info.jpg
+    image_path: assets/images/smart-city-lights/ivolga-forum-info.jpg
     alt: "Информация о форуме"
-  - url: assets/images/smart-city-lights/me-and-my-stand.png
-    image_path: assets/images/smart-city-lights/me-and-my-stand.png
+  - url: assets/images/smart-city-lights/me-and-my-stand.jpg
+    image_path: assets/images/smart-city-lights/me-and-my-stand.jpg
     alt: "Я и мой выставочный стенд - прототип системы"
   - url: assets/images/smart-city-lights/prototype-web-dashboards.png
     image_path: assets/images/smart-city-lights/prototype-web-dashboards.png
     alt: "Прототип системы мониторинга и управления из браузера"
-  - url: assets/images/smart-city-lights/hardware-components.png
-    image_path: assets/images/smart-city-lights/hardware-components.png
+  - url: assets/images/smart-city-lights/hardware-components.jpg
+    image_path: assets/images/smart-city-lights/hardware-components.jpg
     alt: "Компоненты hardware-устройства"
 ---
 
