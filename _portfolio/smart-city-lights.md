@@ -9,7 +9,7 @@ sidebar:
   - title: "Место"
     image: assets/images/smart-city-lights/ivolga-logo.png
     image_alt: "logo"
-    text: "[Молодежный форум iВолга-2018, Самарская обл.][ivolgafolrum]"
+    text: "[Молодежный форум iВолга-2018, Самарская обл.](http://ivolgaforum.ru/)"
   - title: "Роль"
     text: "Участник"
   - title: "Мой вклад"
@@ -43,7 +43,6 @@ gallery:
 
 {% include gallery %}
 
-[ivolgaforum]: http://ivolgaforum.ru/
 [grafana]: http://grafana.com
 [influx]: http://influxdata.com
 [nodemcu]: http://www.nodemcu.com/index_en.html
