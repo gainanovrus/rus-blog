@@ -39,7 +39,9 @@ gallery:
 
 Данный прототип был представлен на выставке, получил высокую оценку жюри и положительные отзывы участников молодежного форума.
 
-Презентация проекта - [скачать]({{ site.baseurl }}/assets/files/smart-city-lights/SmartTechologies_iVolga18.pdf)
+Презентация проекта - [скачать]({{ site.baseurl }}/assets/files/smart-city-lights/SmartTechologies_iVolga18.pdf).
+
+Исходные коды прототипа проекта - [github.com](https://github.com/GRomR1/ivolga18-project).
 
 {% include gallery %}
 
