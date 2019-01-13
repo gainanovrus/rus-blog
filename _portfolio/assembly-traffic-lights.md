@@ -15,17 +15,17 @@ sidebar:
   - title: "Мой вклад"
     text: "Организовал и провел мастер-класс для детей в рамках Европейской недели программирования."
 gallery:
-  - url: assets/images/assembly-traffic-lights/1-min.png
-    image_path: assets/images/assembly-traffic-lights/1-min.png
+  - url: assets/images/assembly-traffic-lights/1-min.jpg
+    image_path: assets/images/assembly-traffic-lights/1-min.jpg
     alt: "Обучения основам электрической цепи"
-  - url: assets/images/assembly-traffic-lights/2-min.png
-    image_path: assets/images/assembly-traffic-lights/2-min.png
+  - url: assets/images/assembly-traffic-lights/2-min.jpg
+    image_path: assets/images/assembly-traffic-lights/2-min.jpg
     alt: "Демонстрация устройства светофора"
-  - url: assets/images/assembly-traffic-lights/3-min.png
-    image_path: assets/images/assembly-traffic-lights/3-min.png
+  - url: assets/images/assembly-traffic-lights/3-min.jpg
+    image_path: assets/images/assembly-traffic-lights/3-min.jpg
     alt: "Программирование микроконтроллера Arduino"
-  - url: assets/images/assembly-traffic-lights/4-min.png
-    image_path: assets/images/assembly-traffic-lights/4-min.png
+  - url: assets/images/assembly-traffic-lights/4-min.jpg
+    image_path: assets/images/assembly-traffic-lights/4-min.jpg
     alt: "Дистанционное управление светофором с телефона"
 ---
 
