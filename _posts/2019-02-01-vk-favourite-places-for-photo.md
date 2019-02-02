@@ -220,6 +220,7 @@ fig
 
 [vk-api]: https://vk.com/dev/first_guide
 [gmaps]: https://www.google.com/maps
+[python]: https://www.python.org/
 [jupyter]: https://jupyter.org/
 [jupyter-gmaps]: https://jupyter-gmaps.readthedocs.io/en/stable/index.html
 [requests]: http://docs.python-requests.org/en/master/
@@ -232,6 +233,6 @@ fig
 [evpatoria-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2017.zip
 [evpatoria-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2018.zip
 [simferopol-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/simferopol2017.zip
-[yalta-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/yalta2018.zip
-[sevastopol-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/sevastopol2018.zip
+[yalta-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/yalta2018.zip
+[sevastopol-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/sevastopol2018.zip
 [google-presentation]: https://docs.google.com/presentation/d/10o3zywYCnKqnC6N70O8he3XyAHWikVdwPxepUXixMTQ
