@@ -28,13 +28,13 @@ gem install jekyll bundler
 
 Deploy a site on localhost
 ```
-cd ./eng-blog/
+cd ./rus-blog/
 bundler install
 bundler update --bundler
 bundle exec jekyll serve -d public --incremental --verbose --watch
 ```
 
-Open deployment in browser ([localhost:4000/eng-blog](http:/localhost:4000/eng-blog))
+Open deployment in browser ([localhost:4000/rus-blog](http://localhost:4000/rus-blog))
 
 ## Deploy to GitHub
 
