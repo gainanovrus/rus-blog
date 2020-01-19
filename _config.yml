@@ -13,10 +13,11 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "ru-RU"
-title                    : "GAINANOV.PRO - БЛОГ"
+title                    : "GAINANOV.PRO"
 title_separator          : "-"
+subtitle                 : "БЛОГ: О моих проектах и приключениях"
 name                     : "Руслан Гайнанов"
-description              : "Привет! Это мой персональный блог. В нем я пишу о разработке и администрировании IT и ПО. Здесь всё, что я когда-либо делал и посчитал полезным для объяснения."
+description              : "Привет! В данном блоге я пишу о моих проетах, приключениях и достижениях. Также в части на английском языке можно найти материалы из моей практики - по части разработки ПО, администрирования серверов и DevOps практик."
 url                      : "https://gainanov.pro" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 #url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/rus-blog" # the subpath of your site, e.g. "/blog"
@@ -25,9 +26,9 @@ teaser                   : #"/assets/images/500x300.jpg" # path of fallback teas
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
+  provider               : #"disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
   disqus:
-    shortname            : "blog-w2w2-top" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : #"blog-w2w2-top" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -72,10 +73,10 @@ google:
 
 # SEO Related
 #google_site_verification : "IiSJWKp1pq8YCl4Y6CzZFZ6ioPJDPfQKePK37zliFco" #old for blog.w2w2.top
-google_site_verification : "Wq8i7X_W6EpXbttUnWRWiok4EyvFVb-nyUaY_kDLDMc"
+google_site_verification : #"Wq8i7X_W6EpXbttUnWRWiok4EyvFVb-nyUaY_kDLDMc"
 bing_site_verification   :
 #yandex_site_verification : "eaea34b22b33e2ee" #old for blog.w2w2.top
-yandex_site_verification : "cfbcdd4107182b42"
+yandex_site_verification : #"cfbcdd4107182b42"
 naver_site_verification  :
 
 # Social Sharing
@@ -125,7 +126,7 @@ author:
   # keybase          :
   # instagram        : "gainanovrus" # https://www.instagram.com/gainanovrus/
   # lastfm           :
-  # linkedin         : "gainanovrus" #
+  linkedin         : "gainanovrus" #
   # pinterest        :
   # soundcloud       :
   # stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
@@ -136,7 +137,7 @@ author:
   # weibo            :
   # xing             :
   # youtube          : # "https://youtube.com/c/MichaelRoseDesign"
-  # vk               : "gainanovrus"
+  vk               : "gainanovrus"
   # telegram         : "gainanovrus"
   links:
     - label: "Email"
@@ -158,6 +159,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "linkedin.com/in/gainanovrus"
 
 
 
