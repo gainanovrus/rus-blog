@@ -9,7 +9,7 @@ categories: travelling
 tags: russia sochi
 comments: false
 share: false
-related: true
+related: false
 header:
   teaser: /assets/images/velo-krasnaya-polyana/teaser.jpg
   og_image: /assets/images/velo-krasnaya-polyana/teaser.jpg
@@ -38,7 +38,7 @@ header:
 
 [![osm]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/osm.png)]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/osm.png){: .align-center}
 
-Сам же скальный участок протяженностью около 3 км был построен в конце 19 века под руководством В.К. Константинова, позже его творение будут считать шедевром инженерного искусства конца XIX века. Интересно перечитать заметки того времени [1][notes].
+Сам же скальный участок протяженностью около 3 км был построен в конце 19 века под руководством В.К. Константинова, позже его творение будут считать шедевром инженерного искусства конца XIX века. Интересно перечитать заметки того времени [[1][notes]].
 
 [![4]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/4-min.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/4.jpg){: .align-center}
 
