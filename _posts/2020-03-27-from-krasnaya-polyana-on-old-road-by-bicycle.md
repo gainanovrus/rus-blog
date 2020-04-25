@@ -6,7 +6,7 @@ excerpt: >-
   Когда весна набирает силу, а люди всё меньше выходят на улицу, самое время отправиться на электричке с велосипедом на Красную поляну. И проехаться с ветерком по старому шоссе до Адлера, захватив самый интересный участок - дорогу "Господи, пронеси!"
 author_profile: false
 categories: travelling
-tags: russia sochi
+tags: russia sochi bicycle
 comments: false
 share: false
 related: false
@@ -68,7 +68,7 @@ header:
 
 [![11]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/11-min.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/11.jpg){: .align-center}
 
-Запустение и заброшенность придают этому месту особый колорит. Интересно наблюдать как с годами природа берет своё и поглощает всё, человек создал. А ведь когда-то здесь кипела жизнь, ездили автобусы с сеткой от камнепадов, строились бетонные карнизы, возвышались линии электропередач.
+Запустение и заброшенность придают этому месту особый колорит. Интересно наблюдать как с годами природа берет своё и поглощает всё, что человек создал. А ведь когда-то здесь кипела жизнь, ездили автобусы с сеткой от камнепадов, строились бетонные карнизы, возвышались линии электропередач.
 
 И для полноты картины не могу не добавить несколько фотографий от автора блога [Travel-or-Die][travelblog]
 
@@ -80,8 +80,15 @@ header:
 
 [![14]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/14-min.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/velo-krasnaya-polyana/14.jpg){: .align-center}
 
-Продолжение следует…
+Продолжение [следует][next-post]…
+
+## полезное
+
+* [Скальный участок или старая дорога “Пронеси господи”.][vokrugsochi] - статья в блоге Вокруг Сочи
+* [Велопрогулка по самой опасной дороге в Сочи][travelblog] - фото и видео с квадрокоптера этой дороги
+* [Краснополянское шоссе: как строили дороги за 117 лет до сочинской олимпиады][notes] - заметки из истории
 
 [vokrugsochi]: https://vokrugsochi.su/pronesigospodi/
 [travelblog]: https://travel-or-die.ru/staraya-doroga-na-krasnuyu-polyanu/
 [notes]: http://arch-sochi.ru/2015/10/krasnopolyanskoe-shosse-kak-stroili-dorogi-za-117-let-do-sochinskoy-olimpiadyi/
+[next-post]: {% post_url 2020-04-23-hosta-kalinovoe-ozero-matsesta %}

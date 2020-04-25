@@ -11,7 +11,7 @@ header:
   og_image: /assets/images/journey-to-crimea/overlay_crimea.jpg
   overlay_image: /assets/images/journey-to-crimea/overlay_crimea.jpg
 categories: travelling
-tags: russia
+tags: russia bicycle crimea
 
 crimea-gallery:
   - url: /assets/images/journey-to-crimea/crimea-1.jpg
