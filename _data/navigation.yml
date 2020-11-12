@@ -1,9 +1,0 @@
-main:
-  - title: "Категории"
-    url: /categories/
-  - title: "Теги"
-    url: /tags/
-  - title: "Портфолио"
-    url: /portfolio/
-  - title: "Обо мне"
-    url: /about/

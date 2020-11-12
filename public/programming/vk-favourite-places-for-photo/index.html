@@ -1,0 +1,878 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ru" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Анализ городской среды через гео-данные фотографий из VK - GAINANOV.PRO</title>
+<meta name="description" content="Однажды захотелось поработать с VK API и картографическими сервисами Google. За основу взял задачу определения мест в городах Крыма пользующихся наибольшей популярностью и пользователей соцсети, т.е. требовалось собрать все фотографии сделанные в заданной области (VK хранит информацию о том, где была сделана фотография) и сформировать из этого набора тепловую карту.">
+
+
+  <meta name="author" content="Руслан Гайнанов">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="GAINANOV.PRO">
+<meta property="og:title" content="Анализ городской среды через гео-данные фотографий из VK">
+<meta property="og:url" content="http://localhost:4000/rus-blog/programming/vk-favourite-places-for-photo/">
+
+
+  <meta property="og:description" content="Однажды захотелось поработать с VK API и картографическими сервисами Google. За основу взял задачу определения мест в городах Крыма пользующихся наибольшей популярностью и пользователей соцсети, т.е. требовалось собрать все фотографии сделанные в заданной области (VK хранит информацию о том, где была сделана фотография) и сформировать из этого набора тепловую карту.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/title-min.png">
+
+
+
+  <meta name="twitter:site" content="@gainanovrus">
+  <meta name="twitter:title" content="Анализ городской среды через гео-данные фотографий из VK">
+  <meta name="twitter:description" content="Однажды захотелось поработать с VK API и картографическими сервисами Google. За основу взял задачу определения мест в городах Крыма пользующихся наибольшей популярностью и пользователей соцсети, т.е. требовалось собрать все фотографии сделанные в заданной области (VK хранит информацию о том, где была сделана фотография) и сформировать из этого набора тепловую карту.">
+  <meta name="twitter:url" content="http://localhost:4000/rus-blog/programming/vk-favourite-places-for-photo/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/title-min.png">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2019-02-01T00:00:00+03:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/rus-blog/programming/vk-favourite-places-for-photo/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ruslan Gainanov",
+      "url": "http://localhost:4000/rus-blog/",
+      "sameAs": ["https://www.facebook.com/gainanovrus","https://twitter.com/gainanovrus","https://linkedin.com/in/gainanovrus"]
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/rus-blog/feed.xml" type="application/atom+xml" rel="alternate" title="GAINANOV.PRO Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/rus-blog/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+  
+    <script src="/rus-blog/assets/js/buttons.js"></script>
+  
+
+
+    <!-- start custom head snippets -->
+<!-- <link href="/assets/css/tagcloud04.css" rel="stylesheet" type="text/css"> -->
+<link href="http://localhost:4000/favicon.ico" rel="icon" type="image/x-icon" />
+
+<!-- Add style to button that change languages (GR) -->
+<link rel="stylesheet" href="/rus-blog/assets/css/language-button.css">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115465350-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115465350-1');
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(57090088, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/57090088" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <!-- Change language button (GR) -->
+        <a title="Change to ENG" class="language-button" style="margin-left: 0px;" onclick="location.pathname = '/eng-blog';" role="button"></a>
+        <a class="site-title" href="/rus-blog/">GAINANOV.PRO</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/rus-blog/categories/" >Категории</a>
+            </li><li class="masthead__menu-item">
+              <a href="/rus-blog/tags/" >Теги</a>
+            </li><li class="masthead__menu-item">
+              <a href="/rus-blog/portfolio/" >Портфолио</a>
+            </li><li class="masthead__menu-item">
+              <a href="/rus-blog/about/" >Обо мне</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/rus-blog/assets/images/author-150x150.jpg" alt="Руслан Гайнанов" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Руслан Гайнанов</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Инженер-программист</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+
+      
+        <li>
+          <a href="http://gainanov.pro" itemprop="url">
+            <i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span>
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="mailto:gromrx1@gmail.com">
+            <meta itemprop="email" content="gromrx1@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/gainanovrus" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+      
+        <li>
+          <a href="https://vk.com/gainanovrus" itemprop="sameAs">
+            <i class="fab fa-fw fa-vk" aria-hidden="true"></i> VK
+          </a>
+        </li>
+      
+
+      
+
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Анализ городской среды через гео-данные фотографий из VK">
+    <meta itemprop="description" content="Однажды захотелось поработать с VK API и картографическими сервисами Google. За основу взял задачу определения мест в городах Крыма пользующихся наибольшей популярностью и пользователей соцсети, т.е. требовалось собрать все фотографии сделанные в заданной области (VK хранит информацию о том, где была сделана фотография) и сформировать из этого набора тепловую карту.">
+    <meta itemprop="datePublished" content="2019-02-01T00:00:00+03:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Анализ городской среды через гео-данные фотографий из VK
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#используемые-инструменты">Используемые инструменты</a></li>
+  <li><a href="#программа-для-сбора-и-обработки-данных">Программа для сбора и обработки данных</a></li>
+  <li><a href="#результаты">Результаты</a>
+    <ul>
+      <li><a href="#евпатория---2017-год">Евпатория - 2017 год</a></li>
+      <li><a href="#евпатория---2018-год">Евпатория - 2018 год</a></li>
+      <li><a href="#симферополь---2017-год">Симферополь - 2017 год</a></li>
+      <li><a href="#ялта---2018-год">Ялта - 2018 год</a></li>
+      <li><a href="#севастополь---2018-год">Севастополь - 2018 год</a></li>
+    </ul>
+  </li>
+  <li><a href="#выводы">Выводы</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Однажды захотелось поработать с <a href="https://vk.com/dev/first_guide">VK API</a> и картографическими сервисами <a href="https://www.google.com/maps">Google</a>. За основу взял задачу определения мест в городах Крыма пользующихся наибольшей популярностью и пользователей соцсети, т.е. требовалось собрать все фотографии сделанные в заданной области (VK хранит информацию о том, где была сделана фотография) и сформировать из этого набора тепловую карту.</p>
+
+<p>В данной статье покажу полученные результаты, программу для повторения моих опытов и опишу ограничения с которыми пришлось столкнуться. Для работы с данными и интерфейсами VK и Google использовал язык Python и Jupyter Notebooks.</p>
+
+<p>Для анализа взял несколько мест на карте - города пользующиеся популярностью у туристов - Евпатория, Севастополь, Ялта; и Симферополь, как представитель крупного города, где гости не задерживаются надолго и как таковые туристические объекты отсутствуют.</p>
+
+<h2 id="используемые-инструменты">Используемые инструменты</h2>
+
+<ol>
+  <li><a href="https://www.python.org/">Python 3.7</a></li>
+  <li><a href="https://jupyter.org/">JupyterLab 0.35.4</a></li>
+  <li>Библиотеки python:
+    <ul>
+      <li><a href="https://jupyter-gmaps.readthedocs.io">jupyter-gmaps 0.8.2</a></li>
+      <li><a href="http://docs.python-requests.org/en/master/">requests 2.21.0</a></li>
+      <li><a href="http://pandas.pydata.org/">pandas 0.24.0</a></li>
+    </ul>
+  </li>
+</ol>
+
+<p>Не буду расписывать настройку среды и все подготовительные действия, они есть на официальных сайтах инструментов. Все довольно просто.
+Но упомяну, что библиотека jupyter-gmaps требует пересборки jupyter (см. инструкции по <a href="https://jupyter-gmaps.readthedocs.io/en/stable/install.html">установке</a>).</p>
+
+<h2 id="программа-для-сбора-и-обработки-данных">Программа для сбора и обработки данных</h2>
+
+<p>Для начала подключим и импортируем библиотеки:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">gmaps</span>
+<span class="kn">import</span> <span class="nn">gmaps.datasets</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">strftime</span><span class="p">,</span> <span class="n">localtime</span><span class="p">,</span> <span class="n">mktime</span><span class="p">,</span> <span class="n">strptime</span>
+<span class="kn">from</span> <span class="nn">csv</span> <span class="kn">import</span> <span class="n">DictWriter</span><span class="p">,</span> <span class="n">DictReader</span>
+</code></pre></div></div>
+
+<p>Потом необходимо <a href="https://vk.com/editapp?act=create">создать</a> свое приложение VK пользуясь этим <a href="https://vk.com/dev/first_guide?f=2.%20%D0%A0%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F">руководством</a>.
+И приложение Google по этой <a href="https://jupyter-gmaps.readthedocs.io/en/stable/authentication.html">инструкции</a>.
+В итоге мы получим два токена (где ‘…’ это различные символы) или ключа для работы с API сервисов.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GOOGLE_API_KEY</span> <span class="o">=</span> <span class="s">'AI......'</span>
+<span class="n">VK_ACCESS_TOKEN</span> <span class="o">=</span> <span class="s">'d05......'</span>
+<span class="n">VK_VERSION</span> <span class="o">=</span> <span class="s">'5.92'</span>
+</code></pre></div></div>
+
+<p>Затем требуется так называемая инициализация переменных</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">geo</span> <span class="o">=</span> <span class="p">(</span><span class="mf">44.498231</span><span class="p">,</span> <span class="mf">34.169317</span><span class="p">)</span> <span class="c1"># точка поиска - Ялта администрация (взял из карт)
+</span><span class="n">dist</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># радиус поиска фотографий (в метрах)
+</span><span class="n">timeperiod</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1514764800</span><span class="p">,</span> <span class="mi">1546300800</span><span class="p">)</span> <span class="c1"># диапазон времени в котором сделано фото
+</span>                                      <span class="c1"># ( 00:00 1.01.2018,  00:00 1.01.2019 )
+</span></code></pre></div></div>
+
+<p>Описание функции для получения данных от VK. На выходе получаем JSON структуру.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">getVK</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">timeperiod</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'lat'</span><span class="p">:</span> <span class="n">geo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s">'long'</span><span class="p">:</span> <span class="n">geo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s">'count'</span><span class="p">:</span> <span class="s">'1000'</span><span class="p">,</span>
+        <span class="s">'offset'</span><span class="p">:</span> <span class="n">offset</span><span class="p">,</span>
+        <span class="s">'radius'</span><span class="p">:</span> <span class="n">dist</span><span class="p">,</span>
+        <span class="s">'start_time'</span><span class="p">:</span> <span class="n">timeperiod</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s">'end_time'</span><span class="p">:</span> <span class="n">timeperiod</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s">'access_token'</span><span class="p">:</span> <span class="n">VK_ACCESS_TOKEN</span><span class="p">,</span>
+        <span class="s">'v'</span><span class="p">:</span> <span class="n">VK_VERSION</span><span class="p">,</span>
+        <span class="s">'sort'</span><span class="p">:</span> <span class="mi">0</span> <span class="c1"># by date of creation
+</span>    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.vk.com/method/photos.search"</span><span class="p">,</span>
+                        <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">True</span><span class="p">).</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Получаемый ответ будем сохранять в структуру map (словарь), где ключом будет пара - id фото и время фото.
+Это позволит избежать повторов одинаковых фотографий.
+Производить сохранение в словарь будем через функцию, принимающую на входе ответ сервера и сам словарь.
+Там же сделаем обработку исключений, т.к. иногда ответ выдает пустой JSON.
+В переменную <code class="language-plaintext highlighter-rouge">map_data</code> сохраняем непосредственно GPS координаты фотографии.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">save_to_map</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">map_data</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'items'</span><span class="p">]</span>
+    <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">map_data</span><span class="p">[(</span><span class="n">f</span><span class="p">[</span><span class="s">'id'</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s">'date'</span><span class="p">])]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s">'lat'</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="s">'long'</span><span class="p">])</span>
+        <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+            <span class="k">continue</span>
+</code></pre></div></div>
+
+<p>И пожалуй самое главное - функция для запуска сбора данных из VK.</p>
+
+<p>Что в ней важно?
+Используется метод <a href="https://vk.com/dev/photos.search">photos.search</a>.
+Поиск фото ведется циклически в течение заданного временного промежутка с шагов в 24 часа (сутки) - сделано для того, чтобы преодолеть ограничение VK на максимальное количество возвращаемых фото (3000 фото) при одинаковом запросе.
+Сделан цикл для получения дополнительных фотографий, которые не были получены в первый раз (расчет сдвига - offset). И если обработка зацикливания в случае преодоления этого лимита. В общем, есть одна особенность - мы не можем получить больше 3000 фотографий за сутки, все остальные будут так или иначе отброшены. Но в данном примере ими можно принебречь. Т.к. данных для анализа все равно будет достаточно. И да, пришлось добавить вызов функции <code class="language-plaintext highlighter-rouge">sleep(0.5)</code> для того чтобы не слать очень часто запросы и VK не забанил бы приложение.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">map_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span> <span class="c1"># шаг - день
+</span><span class="n">i</span> <span class="o">=</span> <span class="n">timeperiod</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">timeperiod</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">getVK</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">step</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">save_to_map</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">map_data</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'count'</span><span class="p">]</span>
+    <span class="n">returned</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'items'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">returned</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">returned</span>
+        <span class="k">while</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="n">count</span> <span class="ow">and</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">getVK</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">step</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">save_to_map</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">map_data</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'count'</span><span class="p">]</span>
+            <span class="n">returned</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'response'</span><span class="p">][</span><span class="s">'items'</span><span class="p">])</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">+</span> <span class="n">returned</span>
+            <span class="k">if</span> <span class="n">returned</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">step</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>      
+</code></pre></div></div>
+
+<p>Дальше написал функции для сохранения полученного словаря <code class="language-plaintext highlighter-rouge">map_data</code> с данными о расположении фотографий и чтении этих данных обратно в словарь. Это чтобы не производить сбор данных еще раз и в будущем был бы уже готовый датасет.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">save_map_to_csv</span><span class="p">(</span><span class="n">map_data</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'id'</span><span class="p">,</span> <span class="s">'date'</span><span class="p">,</span> <span class="s">'lat'</span><span class="p">,</span> <span class="s">'long'</span><span class="p">]</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">';'</span><span class="p">)</span>
+        <span class="n">writer</span><span class="p">.</span><span class="n">writeheader</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">map_data</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">'id'</span><span class="p">:</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s">'date'</span><span class="p">:</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"%d.%m.%Y"</span><span class="p">,</span> <span class="n">localtime</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span>
+                <span class="s">'lat'</span><span class="p">:</span> <span class="n">map_data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="s">'long'</span><span class="p">:</span> <span class="n">map_data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">read_csv_to_map</span><span class="p">(</span><span class="n">map_data</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">';'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">map_data</span><span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'id'</span><span class="p">]),</span>
+                      <span class="nb">int</span><span class="p">(</span><span class="n">mktime</span><span class="p">(</span><span class="n">strptime</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'date'</span><span class="p">],</span> <span class="s">'%d.%m.%Y'</span><span class="p">))))]</span> <span class="o">=</span>
+                <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'lat'</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">'long'</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>Воспользуемся сохранением в CSV формат полученных данных</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">save_map_to_csv</span><span class="p">(</span><span class="n">map_data</span><span class="p">,</span> <span class="s">'yalta2018.csv'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>И последнее, что осталось сделать это нанести фотографии на карту и создать из них тепловую карту, для выявления очагов, где было сделано наибольшее количество фотографий.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Count of photos {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">map_data</span><span class="p">)))</span>
+<span class="n">gmaps</span><span class="p">.</span><span class="n">configure</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">GOOGLE_API_KEY</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">gmaps</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="n">geo</span><span class="p">,</span> <span class="n">zoom_level</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">heatmap_layer</span> <span class="o">=</span> <span class="n">gmaps</span><span class="p">.</span><span class="n">heatmap_layer</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">map_data</span><span class="p">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">heatmap_layer</span><span class="p">)</span>
+<span class="n">fig</span>
+</code></pre></div></div>
+
+<p>У Google тоже есть ограничение на максимальное количество запросов в день и др.
+Тогда карта окрашивается в темный цвет (см. пример с Симферополем).
+В таких случаях я просто создал еще одно приложение и получил новый токен.</p>
+
+<p>В общем, вот так выглядит программа и полученная тепловая карта в JupyterLab</p>
+
+<p><img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/jupyter-lab-interface.png" alt="jupyter-lab-notebook" class="align-center" /></p>
+
+<h2 id="результаты">Результаты</h2>
+
+<p>В итоге были получены следующие результаты. Я их скомпоновал и выложил в <a href="https://docs.google.com/presentation/d/10o3zywYCnKqnC6N70O8he3XyAHWikVdwPxepUXixMTQ">открытый доступ</a>.</p>
+
+<h3 id="евпатория---2017-год">Евпатория - 2017 год</h3>
+
+<p>Собрано около 217 тысяч фотографий - <a href="http://localhost:4000/rus-blog/assets/files/vk-favourite-places/evpatoria2017.zip">итоговый CSV-файл</a>.
+<img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/evpatoria2017.png" alt="evpatoria-2017" class="align-center" /></p>
+
+<h3 id="евпатория---2018-год">Евпатория - 2018 год</h3>
+
+<p>Собрано около 273 тысяч фотографий - <a href="http://localhost:4000/rus-blog/assets/files/vk-favourite-places/evpatoria2018.zip">итоговый CSV-файл</a>.
+<img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/evpatoria2018.png" alt="evpatoria-2018" class="align-center" /></p>
+
+<h3 id="симферополь---2017-год">Симферополь - 2017 год</h3>
+
+<p>Собрано около 370 тысяч фотографий - <a href="http://localhost:4000/rus-blog/assets/files/vk-favourite-places/simferopol2017.zip">итоговый CSV-файл</a>.
+<img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/simferopol2017.png" alt="simferopol-2017" class="align-center" /></p>
+
+<h3 id="ялта---2018-год">Ялта - 2018 год</h3>
+
+<p>Собрано около 422 тысяч фотографий - <a href="http://localhost:4000/rus-blog/assets/files/vk-favourite-places/yalta2018.zip">итоговый CSV-файл</a>.
+<img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/yalta2018.png" alt="yalta-2018" class="align-center" /></p>
+
+<h3 id="севастополь---2018-год">Севастополь - 2018 год</h3>
+
+<p>Собрано около 1 232 тысяч фотографий - <a href="http://localhost:4000/rus-blog/assets/files/vk-favourite-places/sevastopol2018.zip">итоговый CSV-файл</a>.
+<img src="http://localhost:4000/rus-blog/assets/images/vk-favourite-places/sevastopol2018.png" alt="sevastopol-2018" class="align-center" /></p>
+
+<h2 id="выводы">Выводы</h2>
+
+<p>Помимо полученного опыта работы с API google и VK, удалось с помощью соцсетей вычислить места более всего принятые для фотографирования.
+Это может быть началом для более глубокой аналитики. Например, где сегментации по полу, возрасту, городу; определение временных предпочтений (что популярно днем/ночью, летом/зимой) и пр.
+А для себя, благодаря исследованию, я нашел пару примечательных мест недалеко от Евпатории, которые собираюсь в ближайшее время посетить.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/rus-blog/tags/google" class="page__taxonomy-item" rel="tag">google</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/rus-blog/tags/maps" class="page__taxonomy-item" rel="tag">maps</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/rus-blog/tags/python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/rus-blog/tags/vk" class="page__taxonomy-item" rel="tag">vk</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/rus-blog/categories/programming" class="page__taxonomy-item" rel="tag">programming</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-02-01T00:00:00+03:00">February 1, 2019</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?via=gainanovrus&text=%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B9+%D1%81%D1%80%D0%B5%D0%B4%D1%8B+%D1%87%D0%B5%D1%80%D0%B5%D0%B7+%D0%B3%D0%B5%D0%BE-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5+%D1%84%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%B9+%D0%B8%D0%B7+VK%20http%3A%2F%2Flocalhost%3A4000%2Frus-blog%2Fprogramming%2Fvk-favourite-places-for-photo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Frus-blog%2Fprogramming%2Fvk-favourite-places-for-photo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Frus-blog%2Fprogramming%2Fvk-favourite-places-for-photo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/rus-blog/linux/tasks-of-linux-contest-in-itplanet/" class="pagination--pager" title="Задания с IT-Планеты-2018 по Администрированию Linux
+">Previous</a>
+    
+    
+      <a href="/rus-blog/summary/summary-of-the-2019/" class="pagination--pager" title="Итоги 2019
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/rus-blog/assets/images/about-devops/whois-devops-teases.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/rus-blog/career/about-devops/" rel="permalink">О DevOps и особенностях выбранной профессии
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Последние несколько лет я занимаюсь внедрением DevOps-практик в различных IT-компаниях. И сегодня расскажу в чем ценность DevOps для бизнеса, о профессии Dev...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/rus-blog/assets/images/velo-hosta-matsesta/teaser.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/rus-blog/travelling/hosta-kalinovoe-ozero-matsesta/" rel="permalink">Велопрогулка от Хосты до Мацесты через Калиновое озеро
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">От Хосты до Мацесты не более 7 километров вдоль моря, но есть и более интересный и живописный маршрут - через чайные плантации и высокогорное озеро. Об этом ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/rus-blog/assets/images/velo-krasnaya-polyana/teaser.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/rus-blog/travelling/from-krasnaya-polyana-on-old-road-by-bicycle/" rel="permalink">По старому заброшенному шоссе от Красной поляны до Адлера (2020 год)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Когда весна набирает силу, а люди всё меньше выходят на улицу, самое время отправиться на электричке с велосипедом на Красную поляну. И проехаться с ветерком...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/rus-blog/assets/images/summary/2019/summary.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/rus-blog/summary/summary-of-the-2019/" rel="permalink">Итоги 2019
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Интересный год выдался, насыщенный. Год экспериментов - так назвал бы свой 2019. И почему бы не поделиться своим опытом и открытиями.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-copyright">&copy; 2020 Руслан Гайнанов. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/rus-blog/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/rus-blog/assets/js/lunr/lunr.min.js"></script>
+<script src="/rus-blog/assets/js/lunr/lunr-store.js"></script>
+<script src="/rus-blog/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
