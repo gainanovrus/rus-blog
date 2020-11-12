@@ -14,7 +14,7 @@ share: false
 related: false
 last_modified_at: 2020-11-09
 header:
-  teaser: /assets/images/about-devops/whois-devops.jpg
+  teaser: /assets/images/about-devops/whois-devops-teaser.jpg
   og_image: /assets/images/about-devops/whois-devops.jpg
 ---
 
