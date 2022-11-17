@@ -19,7 +19,7 @@ header:
   image: /assets/images/about-devops/server-room.jpg
 ---
 
-[![1]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/whois-devops.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/whois-devops.jpg){: .align-center}
+[![1]({{ site.baseurl }}/assets/images/about-devops/whois-devops.jpg)]({{ site.baseurl }}/assets/images/about-devops/whois-devops.jpg){: .align-center}
 
 Последние несколько лет я занимаюсь внедрением DevOps-практик в различных IT-компаниях. До этого много занимался разработкой программного обеспечения и системным администрированием. И успел закончить магистратуру по профилю ИТ. А сейчас — Lead DevOps Engineer в [СберМедИИ][sbermed-hh].
 
@@ -48,7 +48,7 @@ __DevOps__ – это методология, которая позволяет 
 
 В итоге, DevOps – это командные усилия сотрудников, занимающихся разработкой, развертыванием и тестированием ПО.
 
-[![devops-circle]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-circle.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-circle.jpg){: .align-center}
+[![devops-circle]({{ site.baseurl }}/assets/images/about-devops/devops-circle.jpg)]({{ site.baseurl }}/assets/images/about-devops/devops-circle.jpg){: .align-center}
 
 ## DevOps-инженер - кто он?
 
@@ -56,7 +56,7 @@ DevOps-инженер — это специалист, который берет
 
 Большинство DevOps инженеров — это системные администраторы, освоившие инструменты для программирования, или же разработчики, разобравшиеся с тонкостями процессов operations.
 
-[![dev-plus-ops-joke]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/dev-plus-ops-joke.jpg)]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/dev-plus-ops-joke.jpg){: .align-center}
+[![dev-plus-ops-joke]({{ site.baseurl }}/assets/images/about-devops/dev-plus-ops-joke.jpg)]({{ site.baseurl }}/assets/images/about-devops/dev-plus-ops-joke.jpg){: .align-center}
 
 
 Опытный DevOps-инженер должен понимать, как создать быструю и устойчивую систему. Ему важно уметь видеть картину целиком, понимать узкие места и недостатки текущих процессов разработки, видеть возможности для улучшения. Огромным плюсом является умение строить в своём сознании схемы инфраструктуры, подсистем и сервисов, описывающие, какой элемент за что отвечает, и как они взаимодействуют друг с другом.
@@ -66,7 +66,7 @@ DevOps-инженер — это специалист, который берет
 Особенностью профессии DevOps является необходимость постоянного и непрерывного изучения и применения нового: новых подходов, технологий и инструментов. Мало создать и внедрить процессы, их надо поддерживать, постоянно улучшать и оптимизировать. Необходимо следить, чтобы они отвечали всем текущим требованиям бизнеса и были максимально простыми, понятными и удобными для участников проекта.
 
 <figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-tools.jpeg"><img src="{{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-tools.jpeg"></a>
+	<a href="{{ site.baseurl }}/assets/images/about-devops/devops-tools.jpeg"><img src="{{ site.baseurl }}/assets/images/about-devops/devops-tools.jpeg"></a>
 	<figcaption><a href="https://www.logicworks.com/blog/2019/11/stop-arguing-about-devops-tools/" title="Stop Arguing About DevOps Tools & Ship Code">Инструменты DevOps инженера</a></figcaption>
 </figure>
 
@@ -104,7 +104,7 @@ __Наиболее важной обязанностью DevOps__ являетс
 
 А на самом деле, лучше просто быть хорошим специалистом в __любой__ области, которая тебе нравится, и жить полной жизнью. И неважно, кто это — DevOps-инженер, актуарий или маркшейдер.
 
-[![devops-on-the-flight]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-on-the-flight.jpeg)]({{ site.url }}{{ site.baseurl }}/assets/images/about-devops/devops-on-the-flight.jpeg){: .align-center}
+[![devops-on-the-flight]({{ site.baseurl }}/assets/images/about-devops/devops-on-the-flight.jpeg)]({{ site.baseurl }}/assets/images/about-devops/devops-on-the-flight.jpeg){: .align-center}
 
 ## Полезные источники
 

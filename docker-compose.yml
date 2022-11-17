@@ -1,0 +1,21 @@
+# no version needed since 2020
+
+services:
+  jekyll:
+    container_name: rus_blog
+    # https://github.com/BretFisher/jekyll-serve
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: bretfisher/jekyll-serve
+    volumes:
+      - .:/site
+    command:
+    - bundle
+    - exec
+    - jekyll
+    - serve
+    - --force_polling
+    - --config=_config.yml,_config.dev.yml
+    ports:
+      - '4000:4000'

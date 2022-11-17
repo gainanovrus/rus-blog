@@ -181,7 +181,7 @@ fig
 
 В общем, вот так выглядит программа и полученная тепловая карта в JupyterLab
 
-![jupyter-lab-notebook]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/jupyter-lab-interface.png){: .align-center}
+![jupyter-lab-notebook]({{ site.baseurl }}/assets/images/vk-favourite-places/jupyter-lab-interface.png){: .align-center}
 
 ## Результаты
 
@@ -190,27 +190,27 @@ fig
 ### Евпатория - 2017 год
 
 Собрано около 217 тысяч фотографий - [итоговый CSV-файл][evpatoria-2017-csv].
-![evpatoria-2017]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/evpatoria2017.png){: .align-center}
+![evpatoria-2017]({{ site.baseurl }}/assets/images/vk-favourite-places/evpatoria2017.png){: .align-center}
 
 ### Евпатория - 2018 год
 
 Собрано около 273 тысяч фотографий - [итоговый CSV-файл][evpatoria-2018-csv].
-![evpatoria-2018]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/evpatoria2018.png){: .align-center}
+![evpatoria-2018]({{ site.baseurl }}/assets/images/vk-favourite-places/evpatoria2018.png){: .align-center}
 
 ### Симферополь - 2017 год
 
 Собрано около 370 тысяч фотографий - [итоговый CSV-файл][simferopol-2017-csv].
-![simferopol-2017]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/simferopol2017.png){: .align-center}
+![simferopol-2017]({{ site.baseurl }}/assets/images/vk-favourite-places/simferopol2017.png){: .align-center}
 
 ### Ялта - 2018 год
 
 Собрано около 422 тысяч фотографий - [итоговый CSV-файл][yalta-2018-csv].
-![yalta-2018]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/yalta2018.png){: .align-center}
+![yalta-2018]({{ site.baseurl }}/assets/images/vk-favourite-places/yalta2018.png){: .align-center}
 
 ### Севастополь - 2018 год
 
 Собрано около 1 232 тысяч фотографий - [итоговый CSV-файл][sevastopol-2018-csv].
-![sevastopol-2018]({{ site.url }}{{ site.baseurl }}/assets/images/vk-favourite-places/sevastopol2018.png){: .align-center}
+![sevastopol-2018]({{ site.baseurl }}/assets/images/vk-favourite-places/sevastopol2018.png){: .align-center}
 
 ## Выводы
 
@@ -230,9 +230,9 @@ fig
 [create-app-doc]: https://vk.com/dev/first_guide?f=2.%20%D0%A0%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F
 [create-google-token]: https://jupyter-gmaps.readthedocs.io/en/stable/authentication.html
 [jupyter-gmaps]: https://jupyter-gmaps.readthedocs.io
-[evpatoria-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2017.zip
-[evpatoria-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2018.zip
-[simferopol-2017-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/simferopol2017.zip
-[yalta-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/yalta2018.zip
-[sevastopol-2018-csv]: {{ site.url }}{{ site.baseurl }}/assets/files/vk-favourite-places/sevastopol2018.zip
+[evpatoria-2017-csv]: {{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2017.zip
+[evpatoria-2018-csv]: {{ site.baseurl }}/assets/files/vk-favourite-places/evpatoria2018.zip
+[simferopol-2017-csv]: {{ site.baseurl }}/assets/files/vk-favourite-places/simferopol2017.zip
+[yalta-2018-csv]: {{ site.baseurl }}/assets/files/vk-favourite-places/yalta2018.zip
+[sevastopol-2018-csv]: {{ site.baseurl }}/assets/files/vk-favourite-places/sevastopol2018.zip
 [google-presentation]: https://docs.google.com/presentation/d/10o3zywYCnKqnC6N70O8he3XyAHWikVdwPxepUXixMTQ
